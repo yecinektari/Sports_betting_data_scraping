@@ -102,10 +102,3 @@ nom_liga = browser.find_elements_by_xpath(
 
 date_liga = browser.find_elements_by_xpath(
     '/html/body/app-desktop/div[1]/div/bcdk-content-scroller/div/sports-competition/div/sports-events-list/bcdk-vertical-scroller/div/div[2]/div/div/div/div[2]/div/sports-events-event/a/div/sports-events-event-info/div')
-
-for x in cotes_liga:
-    print(x.text)
-for x in nom_liga:
-    print(x.text)
-for x in date_liga:
-    print(x.text)
