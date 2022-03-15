@@ -30,7 +30,6 @@ cote2 = browser.find_element_by_xpath(
 cotes = browser.find_elements_by_xpath(
     '/html/body/app-desktop/div[1]/div/bcdk-content-scroller/div/sports-home-page/sports-carousel/div/div/ul/div[2]/sports-events-event/a/sports-events-event-markets/sports-markets-default/div/sports-selections-selection/div[1]/span[2]')
 
-print(cotes)
 
 try:
     exp = browser.find_elements_by_xpath(
