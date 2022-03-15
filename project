@@ -1,5 +1,6 @@
 # Projet
 
+from this import d
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -69,3 +70,9 @@ cotes = browser.find_elements_by_xpath(
 
 nom = browser.find_elements_by_xpath(
     '/html/body/app-desktop/div[1]/div/bcdk-content-scroller/div/sports-competition/div/sports-events-list/bcdk-vertical-scroller/div/div[2]/div/div/div/div[2]/div/sports-events-event/a/div/scoreboards-scoreboard/scoreboards-scoreboard-global/div/div/div')
+
+
+'''On cherche les dates'''
+
+date = browser.find_elements_by_xpath(
+    '/html/body/app-desktop/div[1]/div/bcdk-content-scroller/div/sports-competition/div/sports-events-list/bcdk-vertical-scroller/div/div[2]/div/div/div/div[2]/div[1]/sports-events-event/a/div/sports-events-event-info/div')
