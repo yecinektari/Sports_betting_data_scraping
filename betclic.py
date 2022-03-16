@@ -51,7 +51,6 @@ date_ldc = []
 for x in date_ldc_temp:
     date_ldc.append(x.text)
 
-
 # ---------------------------------------------------------------
 # Betclic Premier League
 # ---------------------------------------------------------------
@@ -77,6 +76,7 @@ date_pl_temp = browser.find_elements_by_xpath(
 date_pl = []
 for x in date_pl_temp:
     date_pl.append(x.text)
+
 
 # ---------------------------------------------------------------
 # Betclic Ligue 1
