@@ -1,4 +1,5 @@
 
+from matplotlib import dates
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -15,6 +16,7 @@ option.add_argument("--incognito")  # Navigation privée
 
 browser = webdriver.Chrome(
     executable_path="/Users/thomasbouiniere/Desktop/Scrapping/chromedriver", options=option)
+
 
 # ---------------------------------------------------------------
 # Winamax - Premier League
@@ -45,6 +47,65 @@ except:
 
 
 '''On récupère les noms d'équipes'''
-# noms_pl = browser.find_elements_by_xpath(
-#     '//*[@id="app"]/div[1]/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[2]/div[1]/div[1]/div[1]/div/span')
-# print(noms_pl)
+noms_pl_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div[1]/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[2]/div[1]/div[1]/div[1]/div/span')
+noms_pl = []
+for x in noms_pl_temp:
+    noms_pl.append(x.text)
+
+'''On récupère les dates des matchs'''
+
+dates_pl_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[1]/div[2]/div')
+dates_pl_temp = dates_pl_temp[:-1]
+
+dates_pl = []
+for x in dates_pl_temp:
+    dates_pl.append(x.text)
+
+
+# ---------------------------------------------------------------
+# Winamax - Ligue des champions
+# ---------------------------------------------------------------
+
+browser.get('https://www.winamax.fr/paris-sportifs/sports/1/800000542/23')
+time.sleep(1)
+
+
+'''On récupère les cotes'''
+
+liens = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div[1]/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a')
+cotes_ldc = []
+try:
+    for lien in liens:
+        for i in range(0, 3):
+            x = lien.get_property('lastChild')
+            x = x.get_property('lastChild')
+            x = x.get_property('lastChild')
+            x = x.get_property('children')[0]
+            x = x.get_property('children')[i]
+            x = x.get_property('children')[1]
+            x = x.get_property('children')[0]
+            x = x.get_property('children')[1]
+            cotes_ldc.append(x.text)
+except:
+    None
+
+
+'''On récupère les noms d'équipes'''
+noms_ldc_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[2]/div[1]/div[1]/div[1]/div/span')
+noms_ldc = []
+for x in noms_ldc_temp:
+    noms_ldc.append(x.text)
+
+'''On récupère les dates des matchs'''
+
+dates_ldc_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[1]/div[2]/div')
+dates_ldc = dates_pl[:-1]
+
+dates_ldc = []
+for x in dates_ldc_temp:
+    dates_ldc.append(x.text)

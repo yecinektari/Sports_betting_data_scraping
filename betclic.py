@@ -28,14 +28,6 @@ time.sleep(2)
 button = browser.find_element_by_xpath('//*[@id="popin_tc_privacy_button_2"]')
 button.click()
 
-# cote_auj = browser.find_elements_by_xpath(
-#     '/html/body/app-desktop/div[1]/div/bcdk-content-scroller/div/sports-competition/div/sports-events-list/bcdk-vertical-scroller/div/div[2]/div/div/div[1]/div[2]/div/sports-events-event/a/sports-events-event-markets/sports-markets-default[1]/div/sports-selections-selection/div[1]/span[2]')
-# # for x in cote_auj:
-# #     print(x.text)
-
-# # Premier match de aujourd'hui
-# # '/html/body/app-desktop/div[1]/div/bcdk-content-scroller/div/sports-competition/div/sports-events-list/bcdk-vertical-scroller/div/div[2]/div/div/div[1]/div[2]/div[1]/sports-events-event/a/sports-events-event-markets/sports-markets-default[1]/div/sports-selections-selection[1]/div[1]/span[2]'
-
 cotes_ldc = browser.find_elements_by_xpath(
     '/html/body/app-desktop/div[1]/div/bcdk-content-scroller/div/sports-competition/div/sports-events-list/bcdk-vertical-scroller/div/div[2]/div/div/div/div[2]/div/sports-events-event/a/sports-events-event-markets/sports-markets-default[1]/div/sports-selections-selection/div[1]/span[2]')
 
