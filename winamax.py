@@ -104,8 +104,104 @@ for x in noms_ldc_temp:
 
 dates_ldc_temp = browser.find_elements_by_xpath(
     '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[1]/div[2]/div')
-dates_ldc = dates_pl[:-1]
+dates_ldc_temp = dates_ldc_temp
 
 dates_ldc = []
 for x in dates_ldc_temp:
     dates_ldc.append(x.text)
+
+
+# ---------------------------------------------------------------
+# Winamax - Ligue 1
+# ---------------------------------------------------------------
+
+browser.get('https://www.winamax.fr/paris-sportifs/sports/1/7/4')
+time.sleep(1)
+
+
+'''On récupère les cotes'''
+
+cotes_l1_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div[1]/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a')
+cotes_l1 = []
+try:
+    for lien in cotes_l1_temp:
+        for i in range(0, 3):
+            x = lien.get_property('lastChild')
+            x = x.get_property('lastChild')
+            x = x.get_property('lastChild')
+            x = x.get_property('children')[0]
+            x = x.get_property('children')[i]
+            x = x.get_property('children')[1]
+            x = x.get_property('children')[0]
+            x = x.get_property('children')[1]
+            cotes_l1.append(x.text)
+except:
+    None
+
+
+'''On récupère les noms d'équipes'''
+noms_l1_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[2]/div[1]/div[1]/div[1]/div/span')
+noms_l1 = []
+for x in noms_l1_temp:
+    noms_l1.append(x.text)
+
+'''On récupère les dates des matchs'''
+
+dates_l1_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[1]/div[2]/div')
+dates_l1_temp = dates_l1_temp[:-1]
+
+dates_l1 = []
+for x in dates_l1_temp:
+    dates_l1.append(x.text)
+
+
+# ---------------------------------------------------------------
+# Winamax - Liga
+# ---------------------------------------------------------------
+
+browser.get('https://www.winamax.fr/paris-sportifs/sports/1/32/36')
+time.sleep(1)
+
+
+'''On récupère les cotes'''
+
+cotes_liga_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div[1]/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a')
+cotes_liga = []
+try:
+    for lien in cotes_liga_temp:
+        for i in range(0, 3):
+            x = lien.get_property('lastChild')
+            x = x.get_property('lastChild')
+            x = x.get_property('lastChild')
+            x = x.get_property('children')[0]
+            x = x.get_property('children')[i]
+            x = x.get_property('children')[1]
+            x = x.get_property('children')[0]
+            x = x.get_property('children')[1]
+            cotes_liga.append(x.text)
+except:
+    None
+
+
+'''On récupère les noms d'équipes'''
+noms_liga_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[2]/div[1]/div[1]/div[1]/div/span')
+noms_liga = []
+for x in noms_liga_temp:
+    noms_liga.append(x.text)
+
+'''On récupère les dates des matchs'''
+
+dates_liga_temp = browser.find_elements_by_xpath(
+    '//*[@id="app"]/div/div[1]/div/div[2]/div/section/div[3]/div[1]/div/div/div/div/div[1]/a/div[1]/div[2]/div')
+dates_liga_temp = dates_liga_temp[:-1]
+
+dates_liga = []
+for x in dates_liga_temp:
+    dates_liga.append(x.text)
+
+print(cotes_liga, noms_liga, dates_liga)
