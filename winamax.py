@@ -203,5 +203,3 @@ dates_liga_temp = dates_liga_temp[:-1]
 dates_liga = []
 for x in dates_liga_temp:
     dates_liga.append(x.text)
-
-print(cotes_liga, noms_liga, dates_liga)
