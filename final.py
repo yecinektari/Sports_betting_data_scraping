@@ -108,7 +108,7 @@ for i, compet in enumerate(compets_winamax):
         res_winamax[compet]['dates'].append(x.text)
 
 # ---------------------------------------------------------------
-# Winamax
+# Unibet
 # ---------------------------------------------------------------
 
 compets_unibet = {'ldc': 'https://www.unibet.fr/sport/football/ligue-des-champions/ligue-des-champions-matchs',
